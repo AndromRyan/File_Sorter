@@ -1,0 +1,6 @@
+origin_dir = /home/androm/Downloads/
+destin_dir = /home/androm/Documents/
+locat_list = {"Per": "Personal", "Wor": "Work", "Uni": "University", "Ran": "Random", "Sof": "Software"}
+month_list = {"1": "Jan", "2": "Feb", "3": "Mar", "4": "Apr", "5": "May", "6": "Jun", "7": "Jul", "8": "Aug", "9": "Sep", "10": "Oct", "11": "Nov", "12": "Dec"}
+info_bool = False
+run_bool = False
