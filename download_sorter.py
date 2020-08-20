@@ -8,9 +8,6 @@
 # Location: Personal, Work, University, Random, Software
 #     printJo      P, W, U, R, S
 
-# Things to Build
-#   Config adder(section, value)
-
 
 import sys
 import time
@@ -98,6 +95,7 @@ def camel_cut(location):
         filler = 3 - len(location)
         locat = location + (filler * "0")
     return location, locat
+# print(camel_cut("h"))
 
 
 def read_config():
@@ -118,6 +116,9 @@ def read_config():
     return definitions
 
 
+config = read_config()
+
+
 def write_config(definitions):
     # Allows for updating the preferences
     with open('sorter_config_2.txt', 'w') as file_write:
@@ -127,12 +128,8 @@ def write_config(definitions):
             file_write.write(name + " = " + value + "\n")
 
 
-def config_adder(add_sect, add_val):
-
-
-
-# After reading config, check if input is within current config
 def config_checker(conf, sect, val2c):
+    # After reading config, check if input is within current config
     print(f"section: {sect}, value_to_check {val2c}, config:  {conf}")
     # if value is within the config section
     # if false ask for new input
@@ -149,7 +146,48 @@ def config_checker(conf, sect, val2c):
         return False
 
 
-def system_inputs():
+# checker = config_checker(config, section, value_to_check)
+# print(checker)
+
+
+def config_origin_destin(direc_list):
+
+    return True
+
+
+def config_remove(_locat_list, _config):
+    locat_cam_lst = [camel_cut(direc) for direc in _locat_list]
+    print("config_remove camel: ", locat_cam_lst)
+    print(type(config))
+    for pair in locat_cam_lst:
+        print(pair)
+        for long, short in pair:
+            if short == config[locat_list]:
+                print("Found conf")
+    print(config["locat_list"])
+
+
+config_remove(["personal", "work", "university"], config)
+
+
+def config_hard_remove(_direc_list):
+    print("config_hard_remove: ", _direc_list)
+
+
+# config_hard_remove([documents_dir, downloads_dir])
+
+
+def config_wipe():
+    config_remove("ALL")
+    config_hard_remove("ALL")
+    print("Wiped my poo")
+    return True
+
+
+# config_wipe()
+
+
+def system_input():
     # Gets the arguments, and passes runs required version of the sorter
     # Read in command-line arguments
     full_cmd_arguments = sys.argv
@@ -209,6 +247,9 @@ def system_inputs():
                        'info_bool': 'False',
                        'run_bool': 'False'}
     return arg_definitions
+
+
+# arg_defins = system_inputs()
 
 
 def sorter(origin, destination, locats, months, info=False, run_time=False):
@@ -281,15 +322,28 @@ def sorter(origin, destination, locats, months, info=False, run_time=False):
         print(f"No directories generated")
 
 
-# print(camel_cut("h"))
-# arg_defins = system_inputs()
-config = read_config()
-checker = config_checker(config, section, value_to_check)
-print(checker)
 # # downloads_dir, documents_dir, locat_list, month_list, info_bool, run_bool =
 # config_check(arg_defins)
 # # sorter(origin=downloads_dir, destination=documents_dir, locats=locat_list,
 # #        months=month_list, info=info_bool, run_time=run_bool)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
